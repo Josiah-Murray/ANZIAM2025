@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<p>Josiah Murray</p>
+					<h5 style="font-size: 3rem;">Numerical inversion of the Laplace transform with application to modelling railway transition zones</h5>
+					<p style="margin-bottom: -1rem; font-size:x-large ;">Supervisors:</p>
+					<p style="font-size: xx-large; margin-bottom: 4rem;">Dr Ravi Pethiyagoda, Professor Mike Meylan, 
+						<br>Professor Natalie Thamwattana</p>
+					<div style=" display: flex; flex-direction: row; background-color: #ece9df; border-radius: 1rem; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto; height: fit-content; width: fit-content; padding: 1.5rem">
+						<img src="Figures/Logos/UON_Alternative.svg" style="height: 5rem; width: 5rem; margin: 1rem; ">
+						<div style="width: 4rem;"></div>
+						<img src="Figures/Logos/PC formatted Stacked ARC logo.svg" style="height: 5rem; margin-right: 1rem;">
+					</div>
+				</section>
+
+				<!--Setting things up-->
+				<section>
+
+					<section data-auto-animate>
+						<div data-id="governing equation">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
+						
+
+						<aside class="notes">
+							We're going to break from tradition here and start with the equation that will permeate the rest of the talk, and then I'll bring in the context.
+						</aside>
+					</section>
+
+					<section data-auto-animate>
+						<div data-id="governing equation">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
+						
+						<img src="Figures/General/Beam on springs and dashpots - no infinity.png" style="background-color: #d5d3cb; border-radius: 1rem;">
+						<aside class="notes">
+							This models a straight beam supported by springs and dashpots. Here are what all the pieces mean:
+
+							Okay, now let's have a look at what we're modelling.
+						</aside>
+					</section>
+
+					<section data-auto-animate>
+						<img src="Figures/General/IMG20240807103644.jpg" data-id="realBallastPic" style="border-radius: 1rem;">
+						<aside class="notes">
+							This is some ballasted track down below the university of newcastle.
+						</aside>
+					</section>
+
+					<section data-auto-animate>
+						<img src="Figures/General/IMG20240807103644.jpg" data-id="realBallastPic" style="position: absolute; top: -4rem; left: -14rem; border-radius: 1rem;">
+						
+						<img src="Figures/General/Annotated Track structure diagram.png" style="background-color: #d5d3cb; border-radius: 1rem; ">
+						<aside class="notes">
+							This is the structure of ballasted track. 
+							
+							Call it Checkov's culvert.
+						</aside>
+					</section>	
+					
+					<section>
+						Solve for steady-state using Fourier transform, say:
+
+						And dynamic solution with Fourier and Laplace (inverting Fourier numerically).
+
+						Image of solutions.
+					</section>
+				</section>
+				<!--Steady-state transition zones-->
+				<section>
+					<section>
+						<p>
+							Now this is good, but I am particularly interested in transition zones.
+						</p>
+						
+
+						<img src="Figures/General/Annotated Track structure diagram.png" style="background-color: #d5d3cb; border-radius: 1rem; width: 25rem; ">
+						Also image of transition zone vague idea or maybe a photo from paper?
+					</section>
+
+					<section>
+						<div data-id="governing equation">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
+						Image of idealised track stiffness and image of data from that paper.
+					</section>
+
+					<section>
+						<div>
+							\[EI\partial_x^4 y + k(x)y = P\delta(x)\]
+						</div>
+						Image demonstrating idea of sections of uniformity.
+					</section>
+
+					<section>
+						Results. Copy paste from paper.
+					</section>
+
+
+
+				</section>
+
+				<!--Meat and potatoes-->
+				<section>
+					<section>
+						But why are we interested in transtion zones:
+						Cycle image
+					</section>
+
+					<section>
+						Talk briefly about mitigation techniques.
+					</section>
+
+					<section>
+						Now we'd like to get things moving.
+						Plan:
+						<p>Laplace $\to$ undetermined coefficients $\to$ inv. Laplace</p>
+						
+
+					</section>
+
+					<section>
+						Quick derivation, looking at the equations.
+					</section>
+
+					<section>
+						Need to invert the laplace transform. But its pretty complicated, so need to do it numerically. We'll use Weeks' method.
+					</section>
+
+					<section>
+						Brief explanation of Weeks' method.
+					</section>
+
+					<section>
+						When we do that, we get these results!
+					</section>
+
+
+
+				</section>
+				<!--Looking forwards-->
+				<section>
+					We are still a ways away from the full thing, but this looks okay.
+				</section>
+				<!--Extra stuff-->
+				<section>
+					<p style="font-size: large;">
+						This research was supported by the Australian Government through the ARC’s
+						Discovery Projects funding scheme (project DP22010286). The views expressed herein are those of the
+						authors and are not necessarily those of the Australian Government or the ARC.
+					</p>
+
+				</section>
+			</div>
+		</div>
+
+		
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMath.MathJax3, RevealNotes]
+			});
+		</script>
+	</body>
+</html>

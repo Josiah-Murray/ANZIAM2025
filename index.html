@@ -8,7 +8,8 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+		<link rel="stylesheet" href="custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,15 +17,228 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<p>Josiah Murray</p>
+					<h5 style="font-size: 3rem;">Numerical inversion of the Laplace transform with application to modelling railway transition zones</h5>
+					<p style="margin-bottom: -1rem; font-size:x-large ;">Supervisors:</p>
+					<p style="font-size: xx-large; margin-bottom: 4rem;">Dr Ravi Pethiyagoda, Professor Mike Meylan, 
+						<br>Professor Natalie Thamwattana</p>
+					<div style=" display: flex; flex-direction: row; background-color: #ece9df; border-radius: 1rem; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto; height: fit-content; width: fit-content; padding: 1.5rem">
+						<img src="Figures/Logos/UON_Alternative.svg" style="height: 5rem; width: 5rem; margin: 1rem; ">
+						<div style="width: 4rem;"></div>
+						<img src="Figures/Logos/PC formatted Stacked ARC logo.svg" style="height: 5rem; margin-right: 1rem;">
+					</div>
+				</section>
+
+				<!--The context-->
+				<section>
+					<section>
+						<div style="display: grid; grid-auto-flow: column; align-items: center;">
+							<img src="Figures/General/IMG20240807103644.jpg" style="border-radius: 1rem;"	height="88%">
+							<img src="Figures/General/Annotated Track structure diagram.png" style="border-radius: 1rem; background-color: #d5d3cb;" >
+						</div>
+						<aside class="notes">
+							Talk about how most of Australian rail is ballasted. Discuss problems briefly.
+						</aside>
+					</section>
+
+					<section>
+						<img src="Figures/General/AnEnergyPerspectivePhoto.png" style="border-radius: 1rem;">
+						<aside class="notes">
+							Talk about mitigation techniques. Discuss one or two examples.
+						</aside>
+						<div class="citation">
+							<ul>
+								<li>
+									Figure from:
+									Indraratna, B., Qi, Y., Malisetty, R. S., Navaratnarajah, S. K., Mehmood, F., & Tawk, M. (2022). Recycled materials in railroad substructure: an energy perspective. Railway Engineering Science, 30(3), 304–322. https://doi.org/10.1007/s40534-021-00267-6								</li>
+							</ul>
+
+						</div>
+					</section>
+
+					<section>
+						<img src="Figures/General/Annotated Track structure diagram.png" style="border-radius: 1rem; background-color: #d5d3cb;" >
+						
+
+						<aside class="notes">
+							Discuss the problems associated with transition zones. 
+
+							Maintain 8 times more often.
+						</aside>
+					</section>
+
+					<section>
+						<img src="Figures/General/Transition zone feedback loop.png" style="border-radius: 1rem; height: fit-content; margin-bottom: 0;">
+						<div class="citation">
+							<ul>
+								<li>
+									Based on a figure from:
+									Indraratna, B., Babar Sajjad, M., Ngo, T., Gomes Correia, A., & Kelly, R. (2019). Improved performance of ballasted tracks at transition zones: A review of experimental and modelling approaches. Transportation Geotechnics, 21, 100260. https://doi.org/10.1016/j.trgeo.2019.100260
+								</li>
+							</ul>
+
+						</div>
+					</section>
+					
+				</section>
+
+				<!--The Mathematics-->
+				<section>
+					<section>
+						<div data-id="governing equation">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
+						
+						<img src="Figures/General/Beam on springs and dashpots - no infinity.png" style="background-color: #d5d3cb; border-radius: 1rem;">
+						<aside class="notes">
+							This models a straight beam supported by springs and dashpots. Here are what all the pieces mean:
+						</aside>
+					</section>
+
+					<section>
+						<div data-id="governing equation" style="font-size: large;">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
+						Graph of $k$ from experiments and one of the idealised form we're going to take.
+						<aside class="notes">
+							For a standard section of track, we take $k$ and $C$ constant, but for transition zones we need to change them.
+						</aside>
+					</section>
+
+					<section>
+						Plan:
+						<p>
+						Laplace$\to$Undetermined coefficients$\to$inv. Laplace
+						</p>
+						<aside class="notes">
+							Things behave nicely, so everything can be done analytically up to the inverse Laplace transform.
+						</aside>
+					</section>
+
+					<section>
+						<p style="font-size: large;">\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]</p>
+						<p>Apply the Laplace transform, $\hat y = \int_0^\infty y e^{-st} dt$: </p>
+						<p>$\downarrow$</p>
+						\[EI \partial x^4 \hat y + [ms^2 + C(x)s + k(x)]\hat y  = \begin{cases} P \delta(x) \quad v=0,\\ \frac{P}{|v|}e^{-sx/v}\quad v\ne 0.\end{cases} \]
+						<aside class="notes">
+							Now this is an ordinary differential equation which we can solve in $x$. I am going to focus on the case where $v=0$ (partially because otherwise the undetermined coefficients part goes to zero). 
+						</aside>
+					</section>
+
+					<section>
+						<div style="display: flex; align-items: center; margin-bottom: -3rem;">
+							<div style="width: 30rem;">
+								<p style="font-size: 2rem; white-space: pre-line;">System with
+									 no transition zones:</p>
+							</div>
+							<div style="width: 30rem;">
+								<p style="font-size: 2rem; white-space: pre-line;">System with 
+									4 splits in beam:</p>
+							</div>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<div style="font-size: 1.5rem; width: 30rem;">
+								\[\begin{align*}
+									\begin{aligned}
+										-c_1 + c_2 + c_3 -c_4 = 0,\\
+										-r_1c_1 + r_2 c_2 + r_3 c_3 - r_4 c_4 = 0,\\
+										-r_1^2 c_1 + r_2^2 c_2 + r_3^2 c_3 - r_4^2 c_4 = 0,\\
+										-r_1^3 c_1 + r_2^3 c_2 + r_3^3 c_3 - r_4^3 c_4 = \frac{P}{EIs}.\\
+									\end{aligned}
+								\end{align*}\]
+							</div>
+							<div>
+								<img src="Figures/General/ExampleAMatrix.png" style="border-radius: 1rem; width: 30rem; margin: 3rem;">
+								<p></p>
+							</div>
+							
+						</div>
+					</section>
+
+					<section>
+						For each homogeneous section we have to invert a Laplace-space solution of the form
+						\[ \small{ \bar{y}(x,s) = 
+						c_1(s)e^{r_1(s)x} +  c_2(s)e^{r_2(s)x} + c_2(s)e^{r_3(s)x} + c_4(s)e^{r_4(s)x}, } \]
+						with 
+						\[\scriptsize{ r^4 + \frac{ms^2 + Cs + k}{EI} = 0.}\]
+						<aside class="notes">
+							The $c_j$ are found by solving a linear system.
+
+							Inverting analytically isn't really an option, so we resort to numerical techniques.
+						</aside>
+					</section>
+
+					<section>
+						<img src="Figures/General/Numerical Laplace inverse examples.png">
+						<aside class="notes">
+							Brief note on numerical Laplace techniques. We choose Weeks' method.
+						</aside>
+					</section>
+
+					<section>
+						<p style="margin-bottom: -2rem;">Weeks' Method</p>
+						<div style="display: grid; grid-auto-flow: column; align-items: center;">
+							<video data-autoplay controls loop src="Videos/LaguerrePolynomials.mp4" style="width: 30rem; border-radius: 1rem;"></video>
+							<div style="width:20rem; height:20rem; font-size: 1.8rem; padding-top: 10rem;">\[ f(t) = e^{\sigma t} \sum_{k=0}^\infty a_k e^{-bt/2}L_k(bt), \]</div>
+						</div>
+					</section>
+
+
+				</section>
+
+
+				<!--Results-->
+				<section>
+					<section>
+						<video src="Videos/MethodComparisonWith3DModel.mov" controls loop data-autoplay style="border-radius: 1rem;"></video>
+					</section>
+
+					<section>
+						Hopefully some cobbled together results for a moving point force on a transition zone (cross fingers).
+					</section>
+
+				</section>
+
+				<!--Looking forwards--> 				<section>
+					<section>
+						
+						<img src="Figures/General/Transition zone feedback loop.png" style="border-radius: 1rem; height: fit-content; margin-bottom: 0;">
+						<div class="citation">
+							<ul>
+								<li>
+									Based on a figure from:
+									Indraratna, B., Babar Sajjad, M., Ngo, T., Gomes Correia, A., & Kelly, R. (2019). Improved performance of ballasted tracks at transition zones: A review of experimental and modelling approaches. Transportation Geotechnics, 21, 100260. https://doi.org/10.1016/j.trgeo.2019.100260
+								</li>
+							</ul>
+
+						</div>
+					</section>
+					<section>
+						<img src="Figures/General/Planned Work.png">
+					</section>
+					
+				</section>
+				<!--Extra stuff-->
+				<section>
+					<p style="font-size: large;">
+						This research was supported by the Australian Government through the ARC’s
+						Discovery Projects funding scheme (project DP22010286). The views expressed herein are those of the
+						authors and are not necessarily those of the Australian Government or the ARC.
+					</p>
+
+				</section>
 			</div>
 		</div>
 
+		
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/notes/notes.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -33,7 +247,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMath.MathJax3, RevealNotes]
 			});
 		</script>
 	</body>
