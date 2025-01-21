@@ -43,7 +43,7 @@
 					</section>
 
 					<section>
-						<img src="Figures/General/AnEnergyPerspectivePhoto.png" style="border-radius: 1rem;">
+						<img src="Figures/General/AnEnergyPerspectivePhoto.png" style="border-radius: 1rem; border-color: #d5d3cb; border-style: solid; border-width: 0.5rem;">
 						<aside class="notes">
 							Talk about mitigation techniques. Discuss one or two examples.
 						</aside>
@@ -58,7 +58,7 @@
 					</section>
 
 					<section>
-						<img src="Figures/General/Annotated Track structure diagram.png" style="border-radius: 1rem; background-color: #d5d3cb;" >
+						<img src="Figures/General/Annotated Track structure diagram.png" style="border-radius: 1rem; background-color: #d5d3cb; height: 30rem;" >
 						
 
 						<aside class="notes">
@@ -97,10 +97,25 @@
 					</section>
 
 					<section>
-						<div data-id="governing equation" style="font-size: large;">
+						<div data-id="governing equation" style="font-size: 2rem;">
 							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
 						</div>
-						Graph of $k$ from experiments and one of the idealised form we're going to take.
+						<div style="display: grid; grid-auto-flow: column; align-items: center;">
+							<div style="height: 20.4rem; background-color: #ffffff; width: 30rem;  display: flex; align-items: center; border-radius: 1rem; margin-right: 1rem; padding-left: 1rem;">
+								<img src="Figures/General/Experimental Track modulus-  cropped.jpg" style="border-radius: 1rem; " >
+							</div>
+							
+							<img src="Figures/General/IdealisedTrackStiffness.svg" style="width: 30rem; border-radius: 1rem; ">
+						</div>
+						<div class="citation">
+							<ul>
+								<li>
+									Left figure from:
+									Indraratna, B., Babar Sajjad, M., Ngo, T., Gomes Correia, A., & Kelly, R. (2019). Improved performance of ballasted tracks at transition zones: A review of experimental and modelling approaches. Transportation Geotechnics, 21, 100260. https://doi.org/10.1016/j.trgeo.2019.100260
+								</li>
+							</ul>
+
+						</div>
 						<aside class="notes">
 							For a standard section of track, we take $k$ and $C$ constant, but for transition zones we need to change them.
 						</aside>
@@ -127,33 +142,8 @@
 					</section>
 
 					<section>
-						<div style="display: flex; align-items: center; margin-bottom: -3rem;">
-							<div style="width: 30rem;">
-								<p style="font-size: 2rem; white-space: pre-line;">System with
-									 no transition zones:</p>
-							</div>
-							<div style="width: 30rem;">
-								<p style="font-size: 2rem; white-space: pre-line;">System with 
-									4 splits in beam:</p>
-							</div>
-						</div>
-						<div style="display: flex; align-items: center;">
-							<div style="font-size: 1.5rem; width: 30rem;">
-								\[\begin{align*}
-									\begin{aligned}
-										-c_1 + c_2 + c_3 -c_4 = 0,\\
-										-r_1c_1 + r_2 c_2 + r_3 c_3 - r_4 c_4 = 0,\\
-										-r_1^2 c_1 + r_2^2 c_2 + r_3^2 c_3 - r_4^2 c_4 = 0,\\
-										-r_1^3 c_1 + r_2^3 c_2 + r_3^3 c_3 - r_4^3 c_4 = \frac{P}{EIs}.\\
-									\end{aligned}
-								\end{align*}\]
-							</div>
-							<div>
-								<img src="Figures/General/ExampleAMatrix.png" style="border-radius: 1rem; width: 30rem; margin: 3rem;">
-								<p></p>
-							</div>
-							
-						</div>
+						\[EI \partial x^4 \hat y + [ms^2 + C_js + k_j]\hat y  =  0\]
+						<img src="Figures/General/VariableStiffness3DRenderBevel.png">
 					</section>
 
 					<section>
@@ -213,9 +203,6 @@
 							</ul>
 
 						</div>
-					</section>
-					<section>
-						<img src="Figures/General/Planned Work.png">
 					</section>
 					
 				</section>
