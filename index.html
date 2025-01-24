@@ -95,6 +95,7 @@
 							This models a straight beam supported by springs and dashpots. Here are what all the pieces mean:
 						</aside>
 					</section>
+					
 
 					<section>
 						<div data-id="governing equation" style="font-size: 2rem;">
@@ -122,6 +123,9 @@
 					</section>
 
 					<section>
+						<div data-id="governing equation" style="font-size: 2rem;">
+							\[ EI \partial_x^4 y +m\partial_t^2 y + C(x)\partial_t y + k(x)y = P\delta(x-vt) \]
+						</div>
 						Plan:
 						<p>
 						Laplace$\to$Undetermined coefficients$\to$inv. Laplace
@@ -141,9 +145,10 @@
 						</aside>
 					</section>
 
+					
 					<section>
 						\[EI \partial x^4 \hat y + [ms^2 + C_js + k_j]\hat y  =  0\]
-						<img src="Figures/General/VariableStiffness3DRenderBevel.png">
+						<video data-autoplay controls loop src="Videos/0001-0090.mkv" style="border-radius: 1rem;"></video>
 					</section>
 
 					<section>
@@ -182,10 +187,6 @@
 				<section>
 					<section>
 						<video src="Videos/MethodComparisonWith3DModel.mov" controls loop data-autoplay style="border-radius: 1rem;"></video>
-					</section>
-
-					<section>
-						Hopefully some cobbled together results for a moving point force on a transition zone (cross fingers).
 					</section>
 
 				</section>
